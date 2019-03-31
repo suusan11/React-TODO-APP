@@ -34,6 +34,18 @@ class App extends Component {
   /*********************************/
 
 
+  //add list event
+  /*********************************/
+    deleteTodo(i) {
+      //delete
+      this.state.todo.splice(i, 1);
+
+      //save
+      this.setState({ todo: this.state.todo });
+    }
+  /*********************************/
+
+
     render() {
     return (
       <div>
@@ -41,7 +53,7 @@ class App extends Component {
           <ul>
               {this.state.todo.map((todo, index) => {
                 return <li key={index}>
-                          <input type="button" value="x"/>{todo.title}
+                          <input type="button" value="x" onClick={() => this.deleteTodo()}/>{todo.title}
                        </li>
               })}
 
