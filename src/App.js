@@ -15,7 +15,26 @@ class App extends Component {
     };
   }
 
-  render() {
+  //add list event
+  /*********************************/
+  addTodo = () => {
+
+    //add
+    this.state.todo.push({
+        title: this.refs.newText.value
+    });
+
+    //save
+    this.setState({ todo: this.state.todo });
+
+    //initialization
+    this.refs.newText.value = '';
+
+  }
+  /*********************************/
+
+
+    render() {
     return (
       <div>
         <h1>ToDo APP</h1>
@@ -27,8 +46,8 @@ class App extends Component {
               })}
 
           </ul>
-          <input type="text"/>
-          <input type="button" value="add"/>
+          <input type="text" ref="newText"/>
+          <input type="button" value="add" onClick={this.addTodo}/>
       </div>
     );
   }
