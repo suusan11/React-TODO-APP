@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import './App.css';
 
+import List from './List';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -50,14 +52,7 @@ class App extends Component {
     return (
       <div>
         <h1>ToDo APP</h1>
-          <ul>
-              {this.state.todo.map((todo, index) => {
-                return <li key={index}>
-                          <input type="button" value="x" onClick={() => this.deleteTodo()}/>{todo.title}
-                       </li>
-              })}
-
-          </ul>
+        <List todo={this.state.todo}/>
           <input type="text" ref="newText"/>
           <input type="button" value="add" onClick={this.addTodo}/>
       </div>
