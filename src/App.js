@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import List from './List';
+import Input from './Input';
 
 class App extends Component {
   constructor(props) {
@@ -19,18 +20,18 @@ class App extends Component {
 
   //add list event
   /*********************************/
-  addTodo = () => {
+  addTodo = (value) => {
 
     //add
     this.state.todo.push({
-        title: this.refs.newText.value
+        title: value
     });
 
     //save
     this.setState({ todo: this.state.todo });
 
     //initialization
-    this.refs.newText.value = '';
+    // this.refs.newText.value = '';
 
   }
   /*********************************/
@@ -53,8 +54,7 @@ class App extends Component {
       <div>
         <h1>ToDo APP</h1>
         <List todo={this.state.todo} deleteTodo={this.deleteTodo}/>
-          <input type="text" ref="newText"/>
-          <input type="button" value="add" onClick={this.addTodo}/>
+        <Input addTodo={this.addTodo}/>
       </div>
     );
   }
