@@ -5,7 +5,7 @@ function List(props) {
         <ul>
             {props.todo.map((todo, index) => {
                 return <li key={index}>
-                    <input type="button" value="x" onClick={() => this.deleteTodo()}/>{todo.title}
+                    <input type="button" value="x" onClick={() => props.deleteTodo()}/>{todo.title}
                 </li>
             })}
 

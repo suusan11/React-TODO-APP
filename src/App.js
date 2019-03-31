@@ -52,7 +52,7 @@ class App extends Component {
     return (
       <div>
         <h1>ToDo APP</h1>
-        <List todo={this.state.todo}/>
+        <List todo={this.state.todo} deleteTodo={this.deleteTodo}/>
           <input type="text" ref="newText"/>
           <input type="button" value="add" onClick={this.addTodo}/>
       </div>
